@@ -23,7 +23,7 @@ func JWTAuth(GuardName string) gin.HandlerFunc {
 			return []byte(g.Cof.Jwt.Secret), nil
 		})
 
-		if err != nil {
+		if err != nil || utils.IsInBlacklist(tokenStr) {
 			response.FailByAuth(ctx, "token无效", 0)
 			ctx.Abort()
 			return

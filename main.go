@@ -19,6 +19,8 @@ func main() {
 		}
 	}()
 
+	g.Redis = bootstrap.InitializeRedis()
+
 	bootstrap.InitializeValidator()
 
 	bootstrap.RunServer()

@@ -7,6 +7,7 @@ import (
 	g "Raven-gin/global"
 	"Raven-gin/utils"
 
+	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 )
 
@@ -28,4 +29,14 @@ func Login(c *gin.Context) {
 		response.Success(c, tokenData)
 	}
 
+}
+
+func Logout(c *gin.Context) {
+	err := utils.JoinBlacklist(c.Keys["token"].(*jwt.Token))
+	if err != nil {
+		response.Fail(c, "注销失败")
+		return
+	}
+
+	response.Success(c, nil)
 }

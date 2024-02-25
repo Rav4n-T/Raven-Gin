@@ -2,6 +2,8 @@ package utils
 
 import (
 	g "Raven-gin/global"
+	"context"
+	"strconv"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -41,4 +43,27 @@ func CreateToken(GuardName string, user JwtUser) (tokenData TokenData, err error
 		g.Cof.Jwt.TokenType,
 	}
 	return
+}
+
+func getBlacklistKey(tokenStr string) string {
+	return "jwt_blacklist:" + MD5([]byte(tokenStr))
+}
+
+func JoinBlacklist(token *jwt.Token) (err error) {
+	nowUnix := time.Now().Unix()
+	timer := time.Duration(token.Claims.(*CustomClaims).ExpiresAt-nowUnix) * time.Second
+	err = g.Redis.SetNX(context.Background(), getBlacklistKey(token.Raw), nowUnix, timer).Err()
+	return
+}
+
+func IsInBlacklist(tokenStr string) bool {
+	joinUnixStr, err := g.Redis.Get(context.Background(), getBlacklistKey(tokenStr)).Result()
+	joinUnix, err := strconv.ParseInt(joinUnixStr, 10, 64)
+	if joinUnixStr == "" || err != nil {
+		return false
+	}
+	if time.Now().Unix()-joinUnix < g.Cof.Jwt.JwtBlacklistGracePeriod {
+		return false
+	}
+	return true
 }

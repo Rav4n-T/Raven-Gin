@@ -9,3 +9,5 @@
 {"level":"local.info","ts":"[2024/02/25 20:14:18]","caller":"Raven-gin/main.go:12","msg":"log init success!"}
 {"level":"local.info","ts":"[2024/02/25 20:17:24]","caller":"Raven-gin/main.go:12","msg":"log init success!"}
 {"level":"local.info","ts":"[2024/02/25 20:28:53]","caller":"Raven-gin/main.go:12","msg":"log init success!"}
+{"level":"local.info","ts":"[2024/02/25 22:57:54]","caller":"Raven-Gin/main.go:12","msg":"log init success!"}
+{"level":"local.info","ts":"[2024/02/25 22:58:05]","caller":"Raven-Gin/main.go:12","msg":"log init success!"}
