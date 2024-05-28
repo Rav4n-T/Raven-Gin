@@ -1,0 +1,39 @@
+app:
+  env: local
+  port: 3000
+  app_name: Raven-gin
+  app_url: http://localhost:3000
+log:
+  level: info
+  root_dir: storage/logs
+  filename: app.log
+  format: json
+  show_line: true
+  max_size: 500
+  max_age: 28
+  max_backup: 3
+  compress: true
+database:
+  driver: mysql
+  host: localhost
+  port: 3306
+  username: root
+  password: root
+  database: raven-gin
+  charset: utf8mb4
+  max_idle_conns: 10
+  max_open_conns: 100
+  log_mode: info
+  enable_file_log_writer: true
+  log_filename: mysql.log
+redis:
+  host: localhost
+  port: 6379
+  db: 0
+  password:
+jwt:
+  token_type: "bearer"
+  secret: raven-gin
+  jwt_exp: 43200
+  jwt_blacklist_grace_period: 10
+  refresh_grace_period: 1800
