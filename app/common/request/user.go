@@ -33,7 +33,7 @@ type Login struct {
 
 func (l *Login) GetMessages() ValidatorMessages {
 	return ValidatorMessages{
-		"username.required": "手机号必填",
+		"username.required": "用户名必填",
 		"password.required": "密码必填",
 	}
 }
