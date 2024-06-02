@@ -14,7 +14,7 @@ func (r *Register) GetMessages() ValidatorMessages {
 
 type RegisterWithMobile struct {
 	Username string `json:"username" binding:"required"`
-	Mobile   string `json:"mobile" binding:"mobile"`
+	Mobile   string `json:"mobile" binding:"required,mobile"`
 	Password string `json:"password" binding:"required"`
 }
 
@@ -27,11 +27,23 @@ func (r *RegisterWithMobile) GetMessages() ValidatorMessages {
 }
 
 type Login struct {
-	Username string `json:"mobile" binding:"required,mobile"`
+	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`
 }
 
 func (l *Login) GetMessages() ValidatorMessages {
+	return ValidatorMessages{
+		"username.required": "手机号必填",
+		"password.required": "密码必填",
+	}
+}
+
+type LoginWithMobile struct {
+	Mobile   string `json:"mobile" binding:"required,mobile"`
+	Password string `json:"password" binding:"required"`
+}
+
+func (l *LoginWithMobile) GetMessages() ValidatorMessages {
 	return ValidatorMessages{
 		"mobile.required":   "手机号必填",
 		"mobile.mobile":     "手机号格式错误",

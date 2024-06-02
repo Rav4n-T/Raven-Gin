@@ -21,5 +21,5 @@ func GetErrorMsg(req interface{}, err error) string {
 			return v.Error()
 		}
 	}
-	return "参数j错误"
+	return "参数错误"
 }
