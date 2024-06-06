@@ -47,16 +47,7 @@ func (s *userService) RegisterWithMobile(params request.RegisterWithMobile) (err
 }
 
 func (s *userService) Login(params request.Login) (err error, user models.User) {
-	err = g.DB.Where("username=?", params.Username).First(&user).Error
-
-	if err != nil || !utils.BcryptCheck(user.Password, []byte(params.Password)) {
-		err = errors.New("账号密码错误")
-	}
-	return
-}
-
-func (s *userService) LoginWithMobile(params request.LoginWithMobile) (err error, user models.User) {
-	err = g.DB.Where("mobile=?", params.Mobile).First(&user).Error
+	err = g.DB.Where("username=? OR email=? OR mobile=?", params.Username, params.Username, params.Username).First(&user).Error
 
 	if err != nil || !utils.BcryptCheck(user.Password, []byte(params.Password)) {
 		err = errors.New("账号密码错误")

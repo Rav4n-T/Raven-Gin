@@ -21,7 +21,6 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 	router.POST("/registerwithmobile", app.RegisterWithMobile)
 
 	router.POST("/login", app.Login)
-	router.POST("/loginwithmobile", app.LoginWithMobile)
 
 	authRouter := router.Group("/auth").Use(middleware.JWTAuth(g.Cof.App.AppName))
 	{

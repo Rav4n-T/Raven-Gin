@@ -37,16 +37,3 @@ func (l *Login) GetMessages() ValidatorMessages {
 		"password.required": "密码必填",
 	}
 }
-
-type LoginWithMobile struct {
-	Mobile   string `json:"mobile" binding:"required,mobile"`
-	Password string `json:"password" binding:"required"`
-}
-
-func (l *LoginWithMobile) GetMessages() ValidatorMessages {
-	return ValidatorMessages{
-		"mobile.required":   "手机号必填",
-		"mobile.mobile":     "手机号格式错误",
-		"password.required": "密码必填",
-	}
-}
