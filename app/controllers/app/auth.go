@@ -31,26 +31,6 @@ func Login(c *gin.Context) {
 
 }
 
-func LoginWithMobile(c *gin.Context) {
-	var form request.LoginWithMobile
-	if err := c.ShouldBindJSON(&form); err != nil {
-		response.Fail(c, request.GetErrorMsg(form, err))
-		return
-	}
-
-	if err, user := services.UserService.LoginWithMobile(form); err != nil {
-		response.Fail(c, err.Error())
-	} else {
-		tokenData, err, _ := utils.CreateToken(g.Cof.App.AppName, user)
-		if err != nil {
-			response.Fail(c, err.Error())
-			return
-		}
-		response.Success(c, tokenData)
-	}
-
-}
-
 func Logout(c *gin.Context) {
 	err := utils.JoinBlacklist(c.Keys["token"].(*jwt.Token))
 	if err != nil {
