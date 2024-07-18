@@ -7,10 +7,10 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 
-	"Raven-gin/app/common/response"
-	"Raven-gin/app/services"
-	g "Raven-gin/global"
-	"Raven-gin/utils"
+	"Raven-Admin/app/common/response"
+	"Raven-Admin/app/services"
+	g "Raven-Admin/global"
+	"Raven-Admin/utils"
 )
 
 func JWTAuth(GuardName string) gin.HandlerFunc {

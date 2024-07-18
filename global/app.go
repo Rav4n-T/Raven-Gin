@@ -6,7 +6,7 @@ import (
 	"go.uber.org/zap"
 	"gorm.io/gorm"
 
-	"Raven-gin/config"
+	"Raven-Admin/config"
 )
 
 var Vp = new(*viper.Viper)

@@ -1,4 +1,4 @@
-module Raven-gin
+module Raven-Admin
 
 go 1.21.6
 

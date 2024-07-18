@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	g "Raven-gin/global"
+	g "Raven-Admin/global"
 )
 
 type Response struct {

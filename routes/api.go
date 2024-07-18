@@ -6,9 +6,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"Raven-gin/app/controllers/app"
-	"Raven-gin/app/middleware"
-	g "Raven-gin/global"
+	"Raven-Admin/app/controllers/app"
+	"Raven-Admin/app/middleware"
+	g "Raven-Admin/global"
 )
 
 func SetApiGroupRoutes(router *gin.RouterGroup) {
@@ -18,6 +18,7 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 	})
 
 	router.POST("/register", app.Register)
+
 	router.POST("/registerwithmobile", app.RegisterWithMobile)
 
 	router.POST("/login", app.Login)

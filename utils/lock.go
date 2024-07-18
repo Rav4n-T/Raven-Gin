@@ -6,7 +6,7 @@ import (
 
 	"github.com/go-redis/redis/v8"
 
-	g "Raven-gin/global"
+	g "Raven-Admin/global"
 )
 
 type Interface interface {

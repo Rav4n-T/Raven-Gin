@@ -1,8 +1,8 @@
 package main
 
 import (
-	"Raven-gin/bootstrap"
-	g "Raven-gin/global"
+	"Raven-Admin/bootstrap"
+	g "Raven-Admin/global"
 )
 
 func main() {

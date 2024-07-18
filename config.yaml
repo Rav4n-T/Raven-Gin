@@ -1,7 +1,7 @@
 app:
   env: local
   port: 3000
-  app_name: Raven-gin
+  app_name: Raven-Admin
   app_url: http://localhost:3000
 log:
   level: info

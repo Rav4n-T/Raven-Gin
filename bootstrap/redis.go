@@ -7,7 +7,7 @@ import (
 	"github.com/go-redis/redis/v8"
 	"go.uber.org/zap"
 
-	g "Raven-gin/global"
+	g "Raven-Admin/global"
 )
 
 func InitializeRedis() *redis.Client {

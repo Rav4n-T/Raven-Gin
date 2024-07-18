@@ -7,7 +7,7 @@ import (
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 
-	g "Raven-gin/global"
+	g "Raven-Admin/global"
 )
 
 func InitializeConfig() *viper.Viper {

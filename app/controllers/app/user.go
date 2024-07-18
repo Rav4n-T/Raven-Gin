@@ -3,9 +3,9 @@ package app
 import (
 	"github.com/gin-gonic/gin"
 
-	"Raven-gin/app/common/request"
-	"Raven-gin/app/common/response"
-	"Raven-gin/app/services"
+	"Raven-Admin/app/common/request"
+	"Raven-Admin/app/common/response"
+	"Raven-Admin/app/services"
 )
 
 func Register(c *gin.Context) {

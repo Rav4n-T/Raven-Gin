@@ -4,8 +4,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"gopkg.in/natefinch/lumberjack.v2"
 
-	"Raven-gin/app/common/response"
-	g "Raven-gin/global"
+	"Raven-Admin/app/common/response"
+	g "Raven-Admin/global"
 )
 
 func CustomRecovery() gin.HandlerFunc {

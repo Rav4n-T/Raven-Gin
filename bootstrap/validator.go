@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator/v10"
 
-	"Raven-gin/utils"
+	"Raven-Admin/utils"
 )
 
 func InitializeValidator() {

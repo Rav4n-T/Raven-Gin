@@ -7,7 +7,7 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 
-	g "Raven-gin/global"
+	g "Raven-Admin/global"
 )
 
 type JwtUser interface {

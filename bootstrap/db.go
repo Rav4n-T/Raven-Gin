@@ -14,8 +14,8 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 
-	"Raven-gin/app/models"
-	g "Raven-gin/global"
+	"Raven-Admin/app/models"
+	g "Raven-Admin/global"
 )
 
 func InitializeDB() *gorm.DB {

@@ -9,8 +9,8 @@ import (
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
 
-	g "Raven-gin/global"
-	"Raven-gin/utils"
+	g "Raven-Admin/global"
+	"Raven-Admin/utils"
 )
 
 var (

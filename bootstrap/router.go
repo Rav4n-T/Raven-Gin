@@ -10,9 +10,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"Raven-gin/app/middleware"
-	g "Raven-gin/global"
-	"Raven-gin/routes"
+	"Raven-Admin/app/middleware"
+	g "Raven-Admin/global"
+	"Raven-Admin/routes"
 )
 
 func setupRouter() *gin.Engine {

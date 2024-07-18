@@ -4,10 +4,10 @@ import (
 	"errors"
 	"strconv"
 
-	"Raven-gin/app/common/request"
-	"Raven-gin/app/models"
-	g "Raven-gin/global"
-	"Raven-gin/utils"
+	"Raven-Admin/app/common/request"
+	"Raven-Admin/app/models"
+	g "Raven-Admin/global"
+	"Raven-Admin/utils"
 )
 
 type userService struct{}
@@ -41,17 +41,19 @@ func (s *userService) RegisterWithMobile(params request.RegisterWithMobile) (err
 		err = errors.New("用户名已存在")
 		return
 	}
+
 	user = models.User{Username: params.Username, Mobile: params.Mobile, Password: utils.BcryptMake([]byte(params.Password))}
 	err = g.DB.Create(&user).Error
 	return
 }
 
 func (s *userService) Login(params request.Login) (err error, user models.User) {
-	err = g.DB.Where("username=? OR email=? OR mobile=?", params.Username, params.Username, params.Username).First(&user).Error
+	err = g.DB.Where("username=?", params.Username).First(&user).Error
 
 	if err != nil || !utils.BcryptCheck(user.Password, []byte(params.Password)) {
 		err = errors.New("账号密码错误")
 	}
+
 	return
 }
 
