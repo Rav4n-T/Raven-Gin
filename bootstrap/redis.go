@@ -21,5 +21,6 @@ func InitializeRedis() *redis.Client {
 		g.Log.Error("Redis 连接失败", zap.Any("err", err))
 		return nil
 	}
+  g.Log.Info("Redis 连接成功")
 	return client
 }
